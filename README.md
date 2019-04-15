@@ -1,4 +1,4 @@
-# Contract-first Salesforce Integration with Fuse Online & Apache Camel
+# Contract-first Salesforce Integration<br/>with Fuse Online & Apache Camel
 
 This project demonstrates a contract-first approach to developing the following workflow using Fuse Online and Apache Camel:
 
