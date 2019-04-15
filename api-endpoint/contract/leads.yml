@@ -1,0 +1,46 @@
+swagger: '2.0'
+info:
+    title: 'Leads API'
+    description: ""
+    version: 0.0.0
+paths:
+    /leads:
+        post:
+            description: 'Add a lead'
+            operationId: addLead
+            parameters:
+                -
+                    name: body
+                    in: body
+                    schema:
+                        type: array
+                        items:
+                            $ref: '#/definitions/lead'
+            responses:
+                '201':
+                    description: 'New leads added'
+                    schema:
+                        type: string
+definitions:
+    lead:
+        title: 'Root Type for lead'
+        description: 'Lead record'
+        type: object
+        properties:
+            first_name:
+                type: string
+            last_name:
+                type: string
+            company:
+                type: string
+            source:
+                type: string
+            phone:
+                type: string
+            email:
+                type: string
+            status:
+                type: string
+            rating:
+                type: string
+        example: "{\n    \"first_name\": \"Simon\",\n    \"last_name\": \"Green\",\n    \"company\": \"Red Hat\",\n    \"source\": \"Partner Referral\",\n    \"phone\": \"(212) 333-1234\",\n    \"email\": \"sigreen@redhat.com\",\n    \"status\": \"Closed Converted\",\n    \"rating\": \"Warm\"\n}"
