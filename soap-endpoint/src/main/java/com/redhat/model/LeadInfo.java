@@ -1,6 +1,6 @@
 package com.redhat.model;
 
-public class Lead {
+public class LeadInfo {
 	
 	private String first_name;
 	private String last_name;
@@ -11,10 +11,9 @@ public class Lead {
 	private String status;
 	private String rating;
 	
-	public Lead() {
-	}
+	public LeadInfo() {}
 	
-	public Lead(String first_name, String last_name, String company, String source, String phone, String email,
+	public LeadInfo(String first_name, String last_name, String company, String source, String phone, String email,
 			String status, String rating) {
 		super();
 		this.first_name = first_name;

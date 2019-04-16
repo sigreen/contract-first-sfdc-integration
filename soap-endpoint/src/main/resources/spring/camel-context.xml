@@ -1,33 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:camel="http://camel.apache.org/schema/spring"
-	xmlns:cxf="http://camel.apache.org/schema/cxf"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="                  http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd                               http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd                        http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf-spring.xsd">
-	<!-- Define a traditional camel context here -->
-	<cxf:cxfEndpoint address="/lead"
-		id="addLeadServiceEndpoint" serviceClass="com.redhat.AddLeadService">
-		<cxf:properties>
-			<entry key="dataFormat" value="PAYLOAD" />
-		</cxf:properties>
-	</cxf:cxfEndpoint>
-	<camelContext id="camel"
-		xmlns="http://camel.apache.org/schema/spring">
-		<dataFormats>
-			<jacksonxml id="jack"
-				unmarshalTypeName="com.redhat.model.Lead" />
-		</dataFormats>
-		<route id="SOAPServer">
-			<from id="_from1" uri="cxf:bean:addLeadServiceEndpoint" />
-			<unmarshal ref="jack" />
-			<log id="_log1" message="${headers} ${body}" />
-			<transform>
-				<simple>
-	                &lt;leadResponse xmlns=&quot;http://redhat.com/&quot;&gt;
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xmlns:cxf="http://camel.apache.org/schema/cxf"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="                  http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd                               http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd                        http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf-spring.xsd">
+    <!-- Define a traditional camel context here -->
+    <cxf:cxfEndpoint address="/lead" id="addLeadServiceEndpoint" serviceClass="com.redhat.AddLeadService">
+        <cxf:properties>
+            <entry key="dataFormat" value="PAYLOAD"/>
+        </cxf:properties>
+    </cxf:cxfEndpoint>
+    <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+        <dataFormats>
+            <jacksonxml id="jack" unmarshalTypeName="com.redhat.model.LeadInfo"/>
+        </dataFormats>
+        <route id="SOAPServer">
+            <from id="_from1" uri="cxf:bean:addLeadServiceEndpoint"/>
+            <unmarshal id="_unmarshal1" ref="jack"/>
+            <log id="_log1" message="${headers} ${body}"/>
+            <transform id="_transform1">
+                <simple>
+	                &lt;leadResponse xmlns="http://redhat.com/"&gt;
 	                &lt;status&gt;Lead Accepted&lt;/status&gt;
 	             	&lt;email&gt;${body.email}&lt;/email&gt;
 	                &lt;/leadResponse&gt; </simple>
-			</transform>
-		</route>
-	</camelContext>
+            </transform>
+        </route>
+    </camelContext>
 </beans>
