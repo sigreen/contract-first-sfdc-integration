@@ -20,8 +20,10 @@
             <transform id="_transform1">
                 <simple>
 	                &lt;addLeadResponse xmlns="http://redhat.com/wsdl/AddLeadService/"&gt;
+	                &lt;return&gt;
 	                &lt;status&gt;Lead Accepted&lt;/status&gt;
 	             	&lt;email&gt;${body.email}&lt;/email&gt;
+	                &lt;/return&gt; </simple>
 	                &lt;/addLeadResponse&gt; </simple>
             </transform>
         </route>
