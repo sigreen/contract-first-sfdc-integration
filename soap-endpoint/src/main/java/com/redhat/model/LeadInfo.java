@@ -1,5 +1,8 @@
 package com.redhat.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class LeadInfo {
 	
 	private String first_name;
