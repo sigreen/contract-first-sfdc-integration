@@ -19,10 +19,10 @@
             <log id="_log1" message="${headers} ${body}"/>
             <transform id="_transform1">
                 <simple>
-	                &lt;leadResponse xmlns="http://redhat.com/"&gt;
+	                &lt;addLeadResponse xmlns="http://redhat.com/wsdl/AddLeadService/"&gt;
 	                &lt;status&gt;Lead Accepted&lt;/status&gt;
 	             	&lt;email&gt;${body.email}&lt;/email&gt;
-	                &lt;/leadResponse&gt; </simple>
+	                &lt;/addLeadResponse&gt; </simple>
             </transform>
         </route>
     </camelContext>
