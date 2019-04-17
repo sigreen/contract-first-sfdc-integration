@@ -20,8 +20,8 @@ public class CamelRoutes extends RouteBuilder {
 		
 		
 			
-		from("timer://foo?fixedRate=true&period=10000")
-			.setBody().constant("{\"first_name\":\"Simon\",\"last_name\":\"Green\",\"company\":\"Red Hat\",\"source\":\"Partner Referral\",\"phone\":\"(212) 333-1234\",\"email\":\"sigreen@redhat.com\",\"status\":\"Closed Converted\",\"rating\":\"Warm\"}")
+		from("activemq:IncomingLeads")
+				//.setBody().constant("{\"first_name\":\"Simon\",\"last_name\":\"Green\",\"company\":\"Red Hat\",\"source\":\"Partner Referral\",\"phone\":\"(212) 333-1234\",\"email\":\"sigreen@redhat.com\",\"status\":\"Closed Converted\",\"rating\":\"Warm\"}")
 			.unmarshal().json(JsonLibrary.Jackson, AddLead.class)
 			.process(
 					new Processor(){

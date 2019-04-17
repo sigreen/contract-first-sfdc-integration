@@ -24,6 +24,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _LeadInfo_QNAME = new QName("http://redhat.com/wsdl/AddLeadService/", "leadInfo");
     private final static QName _AddLead_QNAME = new QName("http://redhat.com/wsdl/AddLeadService/", "addLead");
     private final static QName _AddLeadResponse_QNAME = new QName("http://redhat.com/wsdl/AddLeadService/", "addLeadResponse");
 
@@ -32,6 +33,14 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link LeadInfo }
+     * 
+     */
+    public LeadInfo createLeadInfo() {
+        return new LeadInfo();
     }
 
     /**
@@ -51,11 +60,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link LeadInfo }
+     * Create an instance of {@link JAXBElement }{@code <}{@link LeadInfo }{@code >}}
      * 
      */
-    public LeadInfo createLeadInfo() {
-        return new LeadInfo();
+    @XmlElementDecl(namespace = "http://redhat.com/wsdl/AddLeadService/", name = "leadInfo")
+    public JAXBElement<LeadInfo> createLeadInfo(LeadInfo value) {
+        return new JAXBElement<LeadInfo>(_LeadInfo_QNAME, LeadInfo.class, null, value);
     }
 
     /**
