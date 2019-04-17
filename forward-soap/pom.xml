@@ -150,28 +150,28 @@
           </execution>
         </executions>
       </plugin>
-     <plugin>
-		<groupId>org.apache.cxf</groupId>
-		<artifactId>cxf-codegen-plugin</artifactId>
-		<version>3.2.6</version>
-		<executions>
-			<execution>
-				<id>generate-sources</id>
-				<phase>generate-sources</phase>
-				<goals>
-					<goal>wsdl2java</goal>
-				</goals>
-				<configuration>
-					<sourceRoot>${basedir}/src/main/java</sourceRoot>
-						<wsdlOptions>
-							<wsdlOption>
-								<wsdl>http://soap-endpoint-fuse-66c3b847-5d25-11e9-ad61-0a580a010007.apps.melbourne-c137.openshiftworkshop.com/ws/lead?wsdl</wsdl>
-							</wsdlOption>
-						</wsdlOptions>
-				</configuration>
-			</execution>
-		</executions>
-	 </plugin>
+<!--      <plugin> -->
+<!-- 		<groupId>org.apache.cxf</groupId> -->
+<!-- 		<artifactId>cxf-codegen-plugin</artifactId> -->
+<!-- 		<version>3.2.6</version> -->
+<!-- 		<executions> -->
+<!-- 			<execution> -->
+<!-- 				<id>generate-sources</id> -->
+<!-- 				<phase>generate-sources</phase> -->
+<!-- 				<goals> -->
+<!-- 					<goal>wsdl2java</goal> -->
+<!-- 				</goals> -->
+<!-- 				<configuration> -->
+<!-- 					<sourceRoot>${basedir}/src/main/java</sourceRoot> -->
+<!-- 						<wsdlOptions> -->
+<!-- 							<wsdlOption> -->
+<!-- 								<wsdl>http://soap-endpoint-fuse-66c3b847-5d25-11e9-ad61-0a580a010007.apps.melbourne-c137.openshiftworkshop.com/ws/lead?wsdl</wsdl> -->
+<!-- 							</wsdlOption> -->
+<!-- 						</wsdlOptions> -->
+<!-- 				</configuration> -->
+<!-- 			</execution> -->
+<!-- 		</executions> -->
+<!-- 	 </plugin> -->
     </plugins>
   </build>
 </project>
