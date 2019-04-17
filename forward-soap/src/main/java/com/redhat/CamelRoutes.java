@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import com.redhat.wsdl.addleadservice.AddLead;
+import com.redhat.wsdl.addleadservice.LeadInfo;
+
 
 @Component
 public class CamelRoutes extends RouteBuilder {
@@ -43,7 +45,19 @@ public class CamelRoutes extends RouteBuilder {
 					}
 			)
 			.to("cxf://http://soap-endpoint-fuse-66c3b847-5d25-11e9-ad61-0a580a010007.apps.melbourne-c137.openshiftworkshop.com/ws/lead?serviceClass=com.redhat.wsdl.addleadservice.AddLeadService&defaultOperationName=addLead&dataFormat=POJO")
-			.log("RESPONSE BODY: [${body}]");
+			.process(
+					new Processor(){
+
+						@Override
+						public void process(Exchange exchange) throws Exception {
+							
+							MessageContentsList list = (MessageContentsList)exchange.getIn().getBody();
+							
+							exchange.getOut().setBody((LeadInfo)list.get(0));
+						}
+					}
+			)
+			.log("RESPONSE BODY: [${body.status} ${body.email}]");
 		;
 	
 	}

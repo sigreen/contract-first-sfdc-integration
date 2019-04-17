@@ -24,7 +24,7 @@
 	                &lt;status&gt;Lead Accepted&lt;/status&gt;
 	             	&lt;email&gt;${body.email}&lt;/email&gt;
 	                &lt;/return&gt;
-	                &lt;/addLeadResponse&gt; </simple>
+	                &lt;/addLeadResponse&gt;</simple>
             </transform>
         </route>
     </camelContext>
